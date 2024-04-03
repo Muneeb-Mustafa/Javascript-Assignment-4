@@ -30,7 +30,8 @@ function capitalize() {
   }
   // document.getElementById("result").style.texttransform = "capitalize";
   let text2 = text1.toLowerCase();
-  capitalizetext = '<span style = "text-transform: capitalize;">' + text2 + "</span>";
+  capitalizetext =
+    '<span style = "text-transform: capitalize;">' + text2 + "</span>";
   document.getElementById("result").innerHTML = capitalizetext;
 }
 
@@ -50,20 +51,14 @@ function betterFormatting() {
 }
 
 // Print name of cities
-let cities = [
-  "1) Faisalabad",
-  "2) Lahore ",
-  "3) Karachi",
-  "4) Islamabad",
-  "5) Burewala",
-  "6) Sheikhupra  ",
-  "7) Kashmir",
-];
-document.getElementById("Print_Cities").onclick = function () {
-  for (i = 0; i < cities.length; i++) {
-    document.getElementById("result").innerHTML += cities[i] + "<br>";
+let cities = ["Faisalabad", "Lahore", "Karachi", "Islamabad", "Burewala", "Sheikhupura", "Kashmir"];
+
+  document.getElementById("Print_Cities").onclick = function () {
+    document.getElementById('result').innerHTML = "";
+    for (let i = 0; i < cities.length; i++) {
+      document.getElementById("result").innerHTML += (i + 1) + ') ' + cities[i] + "<br>";
+    }
   }
-};
 
 // Add Cities in list
 
@@ -73,10 +68,11 @@ function addCity() {
     alert("Please enter your name first!");
     return;
   }
+  // let newIndex = cities.length + 1;
+  // cities.push(newIndex + ")" + city);
   cities.push(city);
-  document.getElementById("result").innerHTML =
-    '<span style = "color: Red; font-size: 20px">' + city + "</span> has been Successfully added in cities.";
-}
+  document.getElementById("result").innerHTML = '<span style = "color: Red; font-size: 20px">' + city + "</span> has been Successfully added in cities.";
+} 
 
 // Check Our City in list
 
@@ -98,44 +94,20 @@ function checkCity(){
 
 // Find Our name in list
 
-function findWord(){
+function findWord() {
   let someText = "My name is Muneeb Mustafa. I am a Web Developer";
-  someText = someText.toLowerCase()
+  someText = someText.toLowerCase();
   let find = document.getElementById("input").value;
   find = find.toLowerCase();
-  let findword = someText.indexOf(find)
-  if(findword !== -1){
-    alert("Word find at index : " + findword)
-  }else{
-    alert("Word is not found in your list")
+  let findword = someText.indexOf(find);
+  if (findword !== -1) {
+    alert("Word find at index : " + findword);
+  } else {
+    alert("Word is not found in your list");
   }
 }
 
 // Replace Word in text
-
-function replaceWord (){
-  original=original.toLowerCase()
- let words=document.getElementById("input-text").value;
-
- if(!words){
-    alert("Please any word from original text to replace")
-     return
- }
-
- let replaceWith=prompt("please enter your text")
-
- if(!replaceWith){
-     alert("please enter any word to  replace !")
-     return
- }
- words= new RegExp(words,'g')
-   replaceWith=replaceWith.toLowerCase()
-
-   let replaceWoprds=original.replace(words,replaceWith)
-   document.getElementById("result").innerHTML=replaceWoprds
-}
-
-
 
 
 
